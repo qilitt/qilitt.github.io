@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Home
           </a>
         </li>
       
@@ -248,8 +248,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
-            <time itemprop="dateCreated" datetime="2016-10-03T10:31:17+08:00" content="2016-10-03">
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-10-03T10:39:16+08:00" content="2016-10-03">
               2016-10-03
             </time>
           </span>
@@ -279,29 +279,7 @@
       
         
           
-            <p>&lt;!DOCTYPE html&gt;</p>
-<html><br>    <head><br>        <meta charset="UTF-8"><br>        <title></title><br>        <link rel="stylesheet" type="text/css" href="css/style.css"><br>    </head><br>    <body><br>        <div id="container1" class="container clearfix"><br>            <div class="fl box"><br>                <img class="pic" src=""><br>                <p class="header">玩命加载中…</p><br>                <p class="footer">玩命加载中…</p><br>            </div><br>            <ul class="fl"><br>                <li class="active"></li><br>                <li></li><br>                <li></li><br>                <li></li><br>            </ul><br>        </div><br>        <div id="container2" class="container clearfix"><br>            <div class="fl box"><br>                <img class="pic" src=""><br>                <p class="header">玩命加载中…</p><br>                <p class="footer">玩命加载中…</p><br>            </div><br>            <ul class="fl"><br>                <li class="active"></li><br>                <li></li><br>                <li></li><br>            </ul><br>        </div><br>        <script type="text/javascript"><br>            var imgArr1 = [‘img/1.png’,’img/2.png’,’img/3.png’,’img/4.png’];<br>            var textArr1 = [‘图片一’,’图片二’,’图片三’,’图片四’];<br>            var imgArr2 = [‘img/1.png’,’img/2.png’,’img/3.png’];<br>            var textArr2 = [‘图片一’,’图片二’,’图片三’];<br>            var container1 = document.getElementById(‘container1’);<br>            var container2 = document.getElementById(‘container2’);<br>            function tab(obj,imgArr,textArr,ev){<br>                var aLi = obj.getElementsByTagName(‘li’);<br>                var pic = obj.getElementsByClassName(‘pic’)[0];<br>                var header = obj.getElementsByClassName(‘header’)[0];<br>                var footer = obj.getElementsByClassName(‘footer’)[0];<br>                var len=imgArr.length;<br><br>                for (var i=0;i<len;i++) {
-                    aLi[i].index = i; //存索引
-                    aLi[i][ev] = function(){ //注意中括号 []
-                        var _index = this.index;    //取索引值
-                        init(_index);
-                        for (var j=0;j<len;j++) {
-                            aLi[j].className = '';
-                        }
-                        this.className = "active";
-                    }
-                }
-                function init(num){
-                    pic.src = imgArr[num];
-                    header.innerText = (num+1) + '/' + len;
-                    footer.innerText = textArr[num];
-                }
-                init(0);
-            }
-
-            tab(container1,imgArr1,textArr1,'onmouseover');
-            tab(container2,imgArr2,textArr2,'onclick');
-        </script><br>    </body><br></html>
+            <p>在学习Web前端中的一些建议和方法。<br>    在CSS布局时需要注意的一个问题是很多同学缺乏对页面布局进行整体分析，<br>不能够从宏观上对页面中盒子间的嵌套关系进行把握，就急于动手去做，导致页<br>面中各元素间的关系很混乱，容易出现盒子在浮动时错位等情况。建议大家在布<br>局时采用“自顶向下，逐步细化”的思想，先用几个盒子将页面从整体上划分，然<br>后逐步在盒子中继续嵌套盒子。<br>    “君子生非异也，善假于物也”，在学习的过程中还要多浏览一些优秀的网站，<br>善于分析借鉴其设计思路和布局方法，见多方能识广，进而才可以融会贯通，取<br>他人之长为我所用。<br>    Web前端的学习误区:入门快、见效快让我们在不知不觉中已经深深爱上了网<br>页制作。此时，很多人会陷入一个误区，那就是既然借助这么帅的IDE，通过鼠标<br>点击菜单就可以快速方便地制作网页。那么我们为什么还要去学习HTML、CSS、<br>JavaScrpt、jQuery等这些苦逼的代码呢?这不是舍简求繁吗?但是随着学习的深入，<br>就会发现我们步入了一种窘境——过分的依赖IDE导致我们不清楚其实现的本质，知<br>其然但不知其所以然。因此在页面效果出现问题时，我们便手足无措，更不用提如<br>何进行页面优化以及完成一些更高级的应用了。其原因是显而易见的——聪明的IDE成<br>全了我们的惰性，使我们忽略了华丽的网页背后最本质的内容——code。<br>    web前端开发工程师做为互联网行业紧缺的职位之一，人才缺口巨大，每天还在<br>不断的更新。</p>
 
           
         
@@ -364,7 +342,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-30T20:50:24+08:00" content="2016-09-30">
               2016-09-30
             </time>
@@ -458,7 +436,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posté le</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-30T13:30:37+08:00" content="2016-09-30">
               2016-09-30
             </time>
@@ -560,7 +538,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">articles</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -611,7 +589,7 @@
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
