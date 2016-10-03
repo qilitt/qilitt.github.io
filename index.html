@@ -172,7 +172,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -235,6 +235,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/03/secondday/" itemprop="url">
+                  secondday
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posté le</span>
+            <time itemprop="dateCreated" datetime="2016-10-03T10:31:17+08:00" content="2016-10-03">
+              2016-10-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&lt;!DOCTYPE html&gt;</p>
+<html><br>    <head><br>        <meta charset="UTF-8"><br>        <title></title><br>        <link rel="stylesheet" type="text/css" href="css/style.css"><br>    </head><br>    <body><br>        <div id="container1" class="container clearfix"><br>            <div class="fl box"><br>                <img class="pic" src=""><br>                <p class="header">玩命加载中…</p><br>                <p class="footer">玩命加载中…</p><br>            </div><br>            <ul class="fl"><br>                <li class="active"></li><br>                <li></li><br>                <li></li><br>                <li></li><br>            </ul><br>        </div><br>        <div id="container2" class="container clearfix"><br>            <div class="fl box"><br>                <img class="pic" src=""><br>                <p class="header">玩命加载中…</p><br>                <p class="footer">玩命加载中…</p><br>            </div><br>            <ul class="fl"><br>                <li class="active"></li><br>                <li></li><br>                <li></li><br>            </ul><br>        </div><br>        <script type="text/javascript"><br>            var imgArr1 = [‘img/1.png’,’img/2.png’,’img/3.png’,’img/4.png’];<br>            var textArr1 = [‘图片一’,’图片二’,’图片三’,’图片四’];<br>            var imgArr2 = [‘img/1.png’,’img/2.png’,’img/3.png’];<br>            var textArr2 = [‘图片一’,’图片二’,’图片三’];<br>            var container1 = document.getElementById(‘container1’);<br>            var container2 = document.getElementById(‘container2’);<br>            function tab(obj,imgArr,textArr,ev){<br>                var aLi = obj.getElementsByTagName(‘li’);<br>                var pic = obj.getElementsByClassName(‘pic’)[0];<br>                var header = obj.getElementsByClassName(‘header’)[0];<br>                var footer = obj.getElementsByClassName(‘footer’)[0];<br>                var len=imgArr.length;<br><br>                for (var i=0;i<len;i++) {
+                    aLi[i].index = i; //存索引
+                    aLi[i][ev] = function(){ //注意中括号 []
+                        var _index = this.index;    //取索引值
+                        init(_index);
+                        for (var j=0;j<len;j++) {
+                            aLi[j].className = '';
+                        }
+                        this.className = "active";
+                    }
+                }
+                function init(num){
+                    pic.src = imgArr[num];
+                    header.innerText = (num+1) + '/' + len;
+                    footer.innerText = textArr[num];
+                }
+                init(0);
+            }
+
+            tab(container1,imgArr1,textArr1,'onmouseover');
+            tab(container2,imgArr2,textArr2,'onclick');
+        </script><br>    </body><br></html>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/30/firstday/" itemprop="url">
                   firstday
                 </a>
@@ -248,7 +364,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-30T20:50:24+08:00" content="2016-09-30">
               2016-09-30
             </time>
@@ -342,7 +458,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-09-30T13:30:37+08:00" content="2016-09-30">
               2016-09-30
             </time>
@@ -443,8 +559,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -491,11 +607,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
