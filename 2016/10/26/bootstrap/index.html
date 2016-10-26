@@ -73,7 +73,7 @@ git clone https://github.com/twbs/bootstrap.g">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="null" class="js-avatar">
+			<img src="/img.jpg" class="js-avatar">
 			
 		</a>
 
@@ -88,7 +88,9 @@ git clone https://github.com/twbs/bootstrap.g">
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔">随笔</a></li>
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -119,7 +121,7 @@ git clone https://github.com/twbs/bootstrap.g">
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github">github</a>
+					<a class="github" target="_blank" href="https://github.com/qilitt" title="github">github</a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
 		        
@@ -143,7 +145,7 @@ git clone https://github.com/twbs/bootstrap.g">
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="null" class="js-avatar">
+					<img src="/img.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -155,14 +157,16 @@ git clone https://github.com/twbs/bootstrap.g">
 				
 					<li><a href="/">主页</a></li>
 		        
-					<li><a href="/tags/随笔">随笔</a></li>
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
 		        
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/qilitt" title="github">github</a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
 			        
@@ -283,7 +287,7 @@ git clone https://github.com/twbs/bootstrap.g">
     <script>
 	var yiliaConfig = {
 		fancybox: true,
-		mathjax: false,
+		mathjax: true,
 		animate: true,
 		isHome: false,
 		isPost: true,
@@ -297,6 +301,27 @@ git clone https://github.com/twbs/bootstrap.g">
 </script>
 
 <script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
     
@@ -336,9 +361,9 @@ git clone https://github.com/twbs/bootstrap.g">
   			
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接2</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">友情链接2</a>
   	        
-  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接3</a>
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.taobao.com">友情链接3</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
   	        
