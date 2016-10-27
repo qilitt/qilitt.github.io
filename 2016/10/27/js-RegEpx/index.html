@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>JS中的正则表达式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="正则表达式(regular expression)是一个描述字符模式的对象。ECMAScript 的 RegExp 类表示正则表达式，而 String 和 RegExp 都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数。ECMAscript的正则表达式语法是Perl15的正则表达式语法的大型子集。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/10/27/js-RegEpx/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="正则表达式(regular expression)是一个描述字符模式的对象。ECMAScript 的 RegExp 类表示正则表达式，而 String 和 RegExp 都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数。ECMAscript的正则表达式语法是Perl15的正则表达式语法的大型子集。">
+<meta property="og:updated_time" content="2016-10-27T03:04:39.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS中的正则表达式">
+<meta name="twitter:description" content="正则表达式(regular expression)是一个描述字符模式的对象。ECMAScript 的 RegExp 类表示正则表达式，而 String 和 RegExp 都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数。ECMAscript的正则表达式语法是Perl15的正则表达式语法的大型子集。">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">LiQi</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/photos">相册</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/qilitt" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">LiQi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="null" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">LiQi</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/photos">相册</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/qilitt" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-js-RegEpx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS中的正则表达式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>正则表达式(regular expression)是一个描述字符模式的对象。ECMAScript 的 RegExp 类表示正则表达式，而 String 和 RegExp 都定义了使用正则表达式进行强大的模式匹配和文本检索与替换的函数。ECMAscript的正则表达式语法是Perl15的正则表达式语法的大型子集。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//复习字符串方法</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"abcdef"</span>;</div><div class="line">alert(str.search(<span class="string">'bc'</span>))		<span class="comment">//1	第一次出现的位置</span></div><div class="line">alert(str.search(<span class="string">'d'</span>))		<span class="comment">//3</span></div><div class="line">alert(str.search(<span class="regexp">/bc/</span>))		<span class="comment">//1</span></div><div class="line"></div><div class="line">alert(str.substring(<span class="number">1</span>,<span class="number">4</span>))		<span class="comment">//bcd	[1,4)</span></div><div class="line"></div><div class="line">alert(str.charAt(<span class="number">1</span>));			<span class="comment">//b</span></div><div class="line"></div><div class="line">alert(str1.split(<span class="string">'.'</span>))		<span class="comment">//['www','baidu','com']</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用字符串方法获取数字</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"23.4 78 ac d -8 ,4b7"</span>;</div><div class="line"><span class="keyword">var</span> arr = [],tmp=<span class="string">''</span>;</div><div class="line">		</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=str.length;i&lt;len;i++)&#123;</div><div class="line">	<span class="keyword">if</span>(str.charAt(i)&gt;=<span class="string">'0'</span> &amp;&amp; str.charAt(i)&lt;=<span class="number">9</span>)&#123;</div><div class="line">		tmp += str.charAt(i);</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">if</span>(tmp)&#123;</div><div class="line">			arr.push(tmp);</div><div class="line">			tmp = <span class="string">''</span>;	</div><div class="line">		&#125;	</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>(tmp)&#123;</div><div class="line">	arr.push(tmp);</div><div class="line">	tmp = <span class="string">''</span>;	</div><div class="line">&#125;</div><div class="line"></div><div class="line">alert(arr)	<span class="comment">//23,4,78,8,4,7</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用正则表达式获取数字</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"23.4 78 ac d -8 ,4b7"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d+/g</span>;</div><div class="line">alert(str.match(re))</div></pre></td></tr></table></figure>
+<h3 id="正则表达式的定义"><a href="#正则表达式的定义" class="headerlink" title="正则表达式的定义"></a>正则表达式的定义</h3><p>1.RegExp()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="keyword">new</span> <span class="built_in">RegExp</span>(pattern ,attributes)</div></pre></td></tr></table></figure></p>
+<p>2.通过两个斜杠（/）包裹字符<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pattern = <span class="regexp">/pattern/</span>attributes</div></pre></td></tr></table></figure></p>
+<p>pattern:  字符串  指定了正则表达式的模式或其他正则表达式。<br>attributes: 字符串  可选的<br>        g–&gt;全局匹配  i–&gt;不区分大小写  m–&gt;多行匹配<br>        如果 pattern 是正则表达式，而不是字符串，则必须省略该参数。</p>
+<h3 id="正则-test-字符串"><a href="#正则-test-字符串" class="headerlink" title="正则.test(字符串)"></a>正则.test(字符串)</h3><p>test() 方法用于检测一个字符串是否匹配某个模式，如果字符串中含有匹配的文本，则返回 true，否则返回 false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"abcdef"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a/</span>;</div><div class="line">alert(re.test(str))		<span class="comment">//true</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"Abcdef"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a/</span>;</div><div class="line">alert(re.test(str))		<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"Abcdef"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a/i</span>;			<span class="comment">//i --》  不区分大小写</span></div><div class="line">alert(re.test(str))		<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<h3 id="字符串-match-正则"><a href="#字符串-match-正则" class="headerlink" title="字符串.match(正则)"></a>字符串.match(正则)</h3><p>match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。<br>该方法类似 indexOf() 和 lastIndexOf()，但是它返回指定的值，而不是字符串的位置。<br>如果 regexp 没有标志 g，那么 match() 方法就只能在 stringObject 中执行一次匹配。如果没有找到任何匹配的文本， match() 将返回 null。<br>如果 regexp 具有标志 g，则 match() 方法将执行全局检索，找到 stringObject 中的所有匹配子字符串。若没有找到任何匹配的子串，则返回 null。</p>
+<h3 id="字符串-search-正则"><a href="#字符串-search-正则" class="headerlink" title="字符串.search(正则)"></a>字符串.search(正则)</h3><p>search() 方法 检索与正则表达式相匹配的子字符串，并返回子串的起始位置，如果没有匹配项，返回-1。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"abvef"</span>;</div><div class="line">alert(str.search(<span class="regexp">/e/</span>))	<span class="comment">//3	如果匹配返回匹配字符串的位置</span></div><div class="line">alert(str.search(<span class="regexp">/d/</span>))	<span class="comment">//-1	如果没有匹配项，返回-1</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"啊iiahei 3232 aj323hjr2"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d/</span>;</div><div class="line">alert(str.search(re))	<span class="comment">//8</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"啊iiahei 3232 aj323hjr2"</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d/</span>;</div><div class="line">alert(str.search(re))	<span class="comment">//8</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//简易浏览器探测</span></div><div class="line"><span class="keyword">var</span> ua = <span class="built_in">window</span>.navigator.userAgent;</div><div class="line"><span class="comment">//alert(ua)</span></div><div class="line"><span class="keyword">if</span>(ua.search(<span class="regexp">/firefox/i</span>) != <span class="number">-1</span>)&#123;</div><div class="line">	alert(<span class="string">'ff'</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ua.search(<span class="regexp">/chrome/i</span>) != <span class="number">-1</span>)&#123;</div><div class="line">	alert(<span class="string">'chrome'</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ua.search(<span class="regexp">/msie 9/i</span>) != <span class="number">-1</span>)&#123;</div><div class="line">	alert(<span class="string">'IE 9'</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ua.search(<span class="regexp">/msie 8/i</span>) != <span class="number">-1</span>)&#123;</div><div class="line">	alert(<span class="string">'IE 8'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="字符串-replace-被替换字符串或RegExp-替换文本"><a href="#字符串-replace-被替换字符串或RegExp-替换文本" class="headerlink" title="字符串.replace(被替换字符串或RegExp(),替换文本)"></a>字符串.replace(被替换字符串或RegExp(),替换文本)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"abcadAda"</span>;</div><div class="line">alert(str.replace(<span class="string">'a'</span>,<span class="string">'A'</span>))       <span class="comment">//AbcadAda</span></div><div class="line">alert(str.replace(<span class="regexp">/a/</span>,<span class="string">'$'</span>))       <span class="comment">//$bcadAda</span></div><div class="line">alert(str.replace(<span class="regexp">/a/g</span>,<span class="string">'$'</span>))      <span class="comment">//$bc$dAd$	g --&gt; 全局匹配</span></div><div class="line">alert(str.replace(<span class="regexp">/a/gi</span>,<span class="string">'$'</span>))     <span class="comment">//$bc$d$d$</span></div></pre></td></tr></table></figure>
+<pre><code>过滤HTML标签
+&lt;textarea id=&quot;txt1&quot; rows=&quot;10&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;button id=&quot;btn&quot;&gt;转换&lt;/button&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;textarea id=&quot;txt2&quot; rows=&quot;10&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+
+&lt;script&gt;
+    var txt1 = document.getElementById(&apos;txt1&apos;);
+    var btn = document.getElementById(&apos;btn&apos;);
+    var txt2 = document.getElementById(&apos;txt2&apos;);
+
+    btn.onclick = function () {
+        var reg = /&lt;[^&lt;&gt;]+&gt;/g;
+        txt2.value = txt1.value.replace(reg, &apos;&apos;);
+    }
+&lt;/script&gt;
+</code></pre><hr>
+<pre><code>转换前&lt;textarea id=&quot;txt1&quot; rows=&quot;10&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;
+&lt;input id=&quot;btn1&quot; type=&quot;button&quot; value=&quot;过滤&quot; /&gt;&lt;br /&gt;
+转换后&lt;textarea id=&quot;txt2&quot; rows=&quot;10&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;
+&lt;script&gt;
+    var txt1=document.getElementById(&apos;txt1&apos;);
+    var txt2=document.getElementById(&apos;txt2&apos;);
+    var btn=document.getElementById(&apos;btn1&apos;);
+
+    btn.onclick=function ()
+    {
+        var re=/中国|日本|美国/g;
+
+        txt2.value=txt1.value.replace(re, &apos;***&apos;);
+    };
+&lt;/script&gt;
+</code></pre><h3 id="正则表达式模式"><a href="#正则表达式模式" class="headerlink" title="正则表达式模式"></a>正则表达式模式</h3><h4 id="方括号（用于查找某个范围内的字符）"><a href="#方括号（用于查找某个范围内的字符）" class="headerlink" title="方括号（用于查找某个范围内的字符）"></a>方括号（用于查找某个范围内的字符）</h4><p>[abc]     查找方括号之间的任何字符。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[abc] --&gt; a|b|c</span></div><div class="line"><span class="comment">//1[abc]2	--&gt; 1a2 | 1b2 | 1c2</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'1b2 a2b 1c2 1d2'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/1[abc]2/g</span></div><div class="line">alert(str.match(re))    <span class="comment">//1b2 1c2</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[0-9]	--&gt; 0-9 之间任意数字</span></div><div class="line"><span class="keyword">var</span> str=<span class="string">'12feng09jun'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/[0-9]/g</span></div><div class="line">alert(str.match(re))	<span class="comment">//1,2,0,9</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[a-z]	--&gt; a-z之间任意字母</span></div><div class="line"><span class="keyword">var</span> str=<span class="string">'12feng09jun'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/[a-z]/g</span></div><div class="line">alert(str.match(re))	<span class="comment">//f,e,n,g,j,u,n</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[0-9a-z]	--&gt; 0-9 之间任意数字或a-z之间任意字母</span></div><div class="line"><span class="keyword">var</span> str=<span class="string">'1f$#1'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/[0-9a-z]/g</span></div><div class="line">alert(str.match(re))	<span class="comment">//1,f,1</span></div></pre></td></tr></table></figure>
+<h4 id="a-b-查找任何以-分隔的选项。"><a href="#a-b-查找任何以-分隔的选项。" class="headerlink" title="(a|b)    查找任何以 | 分隔的选项。"></a>(a|b)    查找任何以 | 分隔的选项。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'1b2 a2b 1c2 1d2'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/1(a|b|c)2/g</span>	</div><div class="line">alert(str.match(re))    <span class="comment">//1b2 1c2</span></div></pre></td></tr></table></figure>
+<h4 id="元字符-拥有特殊含义的字符"><a href="#元字符-拥有特殊含义的字符" class="headerlink" title="元字符    拥有特殊含义的字符"></a>元字符    拥有特殊含义的字符</h4><table>
+<thead>
+<tr>
+<th>元字符</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td style="text-align:left">查找单个字符，除了换行和行结束符。</td>
+</tr>
+<tr>
+<td>\w</td>
+<td style="text-align:left">查找单词字符</td>
+</tr>
+<tr>
+<td>\W</td>
+<td style="text-align:left">查找非单词字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td style="text-align:left">查找数字</td>
+</tr>
+<tr>
+<td>\D</td>
+<td style="text-align:left">查找非数字字符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td style="text-align:left">查找空白字符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td style="text-align:left">查找非空白字符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td style="text-align:left">匹配单词边界</td>
+</tr>
+<tr>
+<td>\B</td>
+<td style="text-align:left">匹配非单词边界</td>
+</tr>
+<tr>
+<td>\0</td>
+<td style="text-align:left">查找 NUL 字符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td style="text-align:left">查找换行符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td style="text-align:left">查找换页符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td style="text-align:left">查找回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td style="text-align:left">查找制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td style="text-align:left">查找垂直制表符</td>
+</tr>
+<tr>
+<td>\xxx</td>
+<td style="text-align:left">查找以八进制数 xxx 规定的字符</td>
+</tr>
+<tr>
+<td>\xdd</td>
+<td style="text-align:left">查找以十六进制数 dd 规定的字符</td>
+</tr>
+<tr>
+<td>\uxxxx</td>
+<td style="text-align:left">查找以十六进制数 xxxx 规定的 Unicode 字符</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//\s  去除空格</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'  ae  efe e ef e  '</span></div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\s+/g</span>;   <span class="comment">//去空格</span></div><div class="line">alert(str.replace(reg,<span class="string">''</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//\s  去除首尾空格</span></div><div class="line"><span class="keyword">var</span> str=<span class="string">'  ffe ww ee fewf   '</span>;</div><div class="line"><span class="keyword">var</span> re=<span class="regexp">/^\s+|\s+$/g</span>;</div><div class="line">alert(<span class="string">'('</span>+str.replace(re, <span class="string">''</span>)+<span class="string">')'</span>);</div></pre></td></tr></table></figure>
+<h4 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h4><table>
+<thead>
+<tr>
+<th>量词</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n+</td>
+<td style="text-align:left">匹配任何包含至少一个 n 的字符串</td>
+</tr>
+<tr>
+<td>n*</td>
+<td style="text-align:left">匹配任何包含零个或多个 n 的字符串</td>
+</tr>
+<tr>
+<td>n?</td>
+<td style="text-align:left">匹配任何包含零个或一个 n 的字符串</td>
+</tr>
+<tr>
+<td>n{X}</td>
+<td style="text-align:left">匹配包含 X 个 n 的序列的字符串</td>
+</tr>
+<tr>
+<td>n{X,Y}</td>
+<td style="text-align:left">匹配包含 X 或 Y 个 n 的序列的字符串</td>
+</tr>
+<tr>
+<td>n{X,}</td>
+<td style="text-align:left">匹配包含至少 X 个 n 的序列的字符串</td>
+</tr>
+<tr>
+<td>n$</td>
+<td style="text-align:left">匹配任何结尾为 n 的字符串</td>
+</tr>
+<tr>
+<td>^n</td>
+<td style="text-align:left">匹配任何开头为 n 的字符串</td>
+</tr>
+<tr>
+<td>?=n</td>
+<td style="text-align:left">匹配任何其后紧接指定字符串 n 的字符串</td>
+</tr>
+<tr>
+<td>?!n</td>
+<td style="text-align:left">匹配任何其后没有紧接指定字符串 n 的字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//匹配QQ号</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"我的QQ是: 1006900636"</span></div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/[1-9]\d&#123;4,9&#125;/g</span></div><div class="line">alert(str.match(reg))</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//匹配邮箱</span></div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\w+@[a-z0-9]+\.[a-z]&#123;2,4&#125;$/g</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//常用正则表达式</span></div><div class="line"><span class="comment">//匹配中文字符：</span></div><div class="line">/[\u4e00-\u9fa5]/gm</div><div class="line"><span class="comment">//匹配行首尾空白</span></div><div class="line">/(^\s*)|(\s*$)/</div><div class="line"><span class="comment">//只能输入数字</span></div><div class="line">/^\d+$/</div><div class="line"><span class="comment">//只能输入n个数字</span></div><div class="line">/^\d&#123;n&#125;$/</div><div class="line"><span class="comment">//至少输入n个以上的数字</span></div><div class="line">/^\d&#123;n,&#125;$/</div><div class="line"><span class="comment">//只能输入m到n个数字</span></div><div class="line">/^\d&#123;m,n&#125;$/</div><div class="line"><span class="comment">//只能由英文字母组成</span></div><div class="line">/^[a-z]+$/i</div><div class="line"><span class="comment">//只能由大写英文字母组成</span></div><div class="line">/^[A-Z]+$/</div><div class="line"><span class="comment">//只能由英文和数字组成</span></div><div class="line">/^[a-z0<span class="number">-9</span>]+$/i</div><div class="line"><span class="comment">//只能由英文、数字、下划线组成</span></div><div class="line">/^\w+$/</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//常用表单验证</div><div class="line">//匹配Email地址：</div><div class="line">/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/</div><div class="line">//匹配URL地址</div><div class="line">/^https?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/((\.)?(\?)?=?&amp;?[a-zA-Z0-9_-](\?)?)*)*$/i</div><div class="line">//匹配手机号码</div><div class="line">/^[+]&#123;0,1&#125;(\d)&#123;1,3&#125;[ ]?([-]?((\d)|[ ])&#123;1,12&#125;)+$/</div><div class="line">//匹配18位身份证号</div><div class="line">/^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;4&#125;$/</div><div class="line">//匹配邮编号</div><div class="line">/^[1-9]\d&#123;5&#125;(?!\d)$/</div><div class="line">//匹配日期(yyyy-MM-dd)</div><div class="line">/^[1-2][0-9][0-9][0-9]-[0-1]&#123;0,1&#125;[0-9]-[0-3]&#123;0,1&#125;[0-9]$/</div><div class="line">//验证用户密码:	正确格式为：以字母开头，长度在6-18之间，只能包含字符、数字和下划线。</div><div class="line">/^[a-zA-Z]\w&#123;5,17&#125;$/ </div><div class="line">//验证是否含有 ^%&amp;',;=?$\" 等字符：</div><div class="line">/[^%&amp;',;=?$\x22]+/</div><div class="line">//国内电话号码验证</div><div class="line">/\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;/</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//常用UA验证</div><div class="line">//从UA判断是否为IE浏览器：</div><div class="line">/msie (\d+\.\d+)/i</div><div class="line">//从UA判断是否为webkit内核</div><div class="line">/webkit/i</div><div class="line">//从UA判断是否为chrome浏览器</div><div class="line">/chrome\/(\d+\.\d+)/i</div><div class="line">//从UA判断是否为firefox浏览器</div><div class="line">/firefox\/(\d+\.\d+)/i</div><div class="line">//从UA判断是否为opera浏览器</div><div class="line">/opera(\/| )(\d+(\.\d+)?)(.+?(version\/(\d+(\.\d+)?)))?/i</div><div class="line">//从UA判断是否为Safari浏览器</div><div class="line">/(\d+\.\d)?(?:\.\d)?\s+safari\/?(\d+\.\d+)?/i</div><div class="line">//从UA中判断是否为Android系统</div><div class="line">/android/i</div><div class="line">//从UA中判断是否为iPad</div><div class="line">/ipad/i</div><div class="line">//从UA中判断是否为iPhone</div><div class="line">/iphone/i</div><div class="line">//从UA判断是否为Mac OS平台</div><div class="line">/macintosh/i</div><div class="line">//从UA中判断是否为Windows平台</div><div class="line">/windows/i</div><div class="line">//从UA中判断是否为移动终端</div><div class="line">/(nokia|iphone|android|ipad|motorola|^mot\-|softbank|foma|docomo|kddi|up\.browser|up\.link|htc|dopod|blazer|netfront|helio|hosin|huawei|novarra|CoolPad|webos|techfaith|palmsource|blackberry|alcatel|amoi|ktouch|nexian|samsung|^sam\-|s[cg]h|^lge|ericsson|philips|sagem|wellcom|bunjalloo|maui|symbian|smartphone|midp|wap|phone|windows ce|iemobile|^spice|^bird|^zte\-|longcos|pantech|gionee|^sie\-|portalmmm|jig\s browser|hiptop|^ucweb|^benq|haier|^lct|opera\s*mobi|opera\*mini|320x320|240x320|176x220)/i</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML相关</span></div><div class="line"><span class="comment">//匹配link标签</span></div><div class="line">/\&lt;link\s(.*?)\s*(([^&amp;]&gt;)|(\/\&gt;)|(\&lt;\/link\&gt;))/gi</div><div class="line"><span class="comment">//匹配HTML标签</span></div><div class="line">/&lt;(\S*?) [^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt;/gm</div><div class="line">//匹配非HTML标签</div><div class="line">/^[^&lt;&gt;`~!/@\#&#125;$%:;)(_^&#123;&amp;*=|'+]+$/</div><div class="line">//匹配script标签</div><div class="line">/&lt;script[^&gt;]*&gt;[\s\S]*?&lt;\/[^&gt;]*script&gt;/gi</div><div class="line">//匹配HTML注释</div><div class="line">/&lt;!--[\s\S]*?--\&gt;/g</div><div class="line">//匹配HTML条件注释</div><div class="line">/\[\s*if\s+[^\]][\s\w]*\]/i</div><div class="line">//匹配非IE的条件注释</div><div class="line">/^\[if\s+(!IE|false)\]&gt;.*&lt;!\[endif\]$/i</div><div class="line">//匹配CSS expression</div><div class="line">/expression[\s\r\n ]?\(/gi</div><div class="line">//匹配不合法的HTML标签</div><div class="line">/&lt;\W+&gt;/gi</div><div class="line">//匹配textarea标签</div><div class="line">/&lt;textarea[^&gt;]*&gt;[\s\S]*?&lt;\/[^&gt;]*textarea&gt;/gi</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/27/js-RegEpx/" class="archive-article-date">
+  	<time datetime="2016-10-27T03:04:14.472Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js基础/">js基础</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/javascript/">javascript</a><a class="article-category-link" href="/categories/javascript/正则表达式/">正则表达式</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/10/26/bootstrapt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 LiQi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/js基础/" style="font-size: 10px;">js基础</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接1</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">友情链接2</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.taobao.com">友情链接3</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接4</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接5</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">友情链接6</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
