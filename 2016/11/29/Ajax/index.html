@@ -26,7 +26,7 @@ Ajax 全称为：“Asynchronous JavaScript and XML”（异步 JavaScript 和 X
 1.Ajax概述
 2.load()方法
 3.$.get()和$.">
-<meta property="og:updated_time" content="2016-11-29T05:12:01.606Z">
+<meta property="og:updated_time" content="2016-11-29T05:18:17.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="Ajax
@@ -215,60 +215,9 @@ Ajax 全称为：“Asynchronous JavaScript and XML”（异步 JavaScript 和 X
 <li>3.搜索引擎的支持度不够（因为搜索引擎爬虫还不能理解 JS 引起变化数据的内容）；</li>
 <li>4.开发调试工具缺乏（相对于其他语言的工具集来说，JS 或 Ajax 调试开发少的可怜）。</li>
 </ul>
-<p>####（二）异步和同步<br>使用 Ajax 最关键的地方，就是实现异步请求、接受响应及执行回调。那么异步与同步有什么区别呢？我们普通的 Web 程序开发基本都是同步的，意为执行一段程序才能执行下一段，类似电话中的通话，一个电话接完才能接听下个电话；而异步可以同时执行多条任务，感觉有多条线路，类似于短信，不会因为看一条短信而停止接受另一条短信。Ajax 也可以使用同步模式执行，但同步的模式属于阻塞模式，这样会导致多条线路执行时又必须一条一条执行，会让 Web 页面出现假死状态，所以，一般 Ajax 大部分采用异步模式。</p>
-<p>####（三）load()方法<br>jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery 采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.get()和$.post()，最高层是$.getScript()和$.getJSON()方法。</p>
+<h4 id="（二）异步和同步"><a href="#（二）异步和同步" class="headerlink" title="（二）异步和同步"></a>（二）异步和同步</h4><p>使用 Ajax 最关键的地方，就是实现异步请求、接受响应及执行回调。那么异步与同步有什么区别呢？我们普通的 Web 程序开发基本都是同步的，意为执行一段程序才能执行下一段，类似电话中的通话，一个电话接完才能接听下个电话；而异步可以同时执行多条任务，感觉有多条线路，类似于短信，不会因为看一条短信而停止接受另一条短信。Ajax 也可以使用同步模式执行，但同步的模式属于阻塞模式，这样会导致多条线路执行时又必须一条一条执行，会让 Web 页面出现假死状态，所以，一般 Ajax 大部分采用异步模式。</p>
+<h4 id="（三）load-方法"><a href="#（三）load-方法" class="headerlink" title="（三）load()方法"></a>（三）load()方法</h4><p>jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery 采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.get()和$.post()，最高层是$.getScript()和$.getJSON()方法。</p>
 <p>.load()方法可以参数三个参数：url(必须，请求 html 文件的 url 地址，参数类型为 String)、data(可选，发送的 key/value 数据，参数类型为 Object)、callback(可选，成功或失败的回调函数，参数类型为函数 Function)。<br>如果想让 Ajax 异步载入一段 HTML 内容，我们只需要一个 HTML 请求的 url 即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;input type=&quot;button&quot; value=&quot;异步获取数据&quot; /&gt; &lt;div id=&quot;box&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//jQuery </div><div class="line">$(&apos;input&apos;).click(function () &#123;</div><div class="line">$(&apos;#box&apos;).load(&apos;test.html&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>如果想对载入的 HTML 进行筛选，那么只要在 url 参数后面跟着一个选择器即可。</p>
-<p>//带选择器的 url<br>$(‘input’).click(function () {<br>$(‘#box’).load(‘test.html .my’);<br>});</p>
-<p>如果是服务器文件，比如.php。一般不仅需要载入数据，还需要向服务器提交数据，那么我们就可以使用第二个可选参数 data。向服务器提交数据有两种方式：get 和 post。</p>
-<p>//不传递 data，则默认 get 方式<br>$(‘input’).click(function () {<br>$(‘#box’).load(‘test.php?url=sram’);<br>});</p>
-<p>//get 方式接受的 PHP<br>&lt;?php<br>if ($_GET[‘url’] == ‘sram’) {<br>echo ‘思软科技欢迎您’;<br>} else {<br>echo ‘尴尬了！’;<br>}<br>?&gt;</p>
-<p>//传递 data，则为 post 方式<br>$(‘input’).click(function () {<br>$(‘#box’).load(‘test.php’, {<br>url : sram’<br>});<br>});</p>
-<p>//post 方式接受的 PHP<br>&lt;?php<br>if ($_POST[‘url’] == ‘sram’) {<br>echo ‘思软科技欢迎您’;<br>} else {<br>echo ‘尴尬了！’;<br>}<br>?&gt;<br>在 Ajax 数据载入完毕之后，就能执行回调函数 callback，也就是第三个参数。回调函数也可以传递三个可选参数：responseText（请求返回）、textStatus（请求状态)、XMLHttpRequest（XMLHttpRequest 对象）。<br>$(‘input’).click(function () {<br>$(‘#box’).load(‘test.php’, {<br>url : ‘sram’<br>}, function (response, status, xhr) {<br>alert(‘返回的值为：’ + response + ‘，状态为：’ + status + ‘，<br>状态是：’ + xhr.statusText);<br>});<br>});</p>
-<p>注意：status 得到的值，如果成功返回数据则为：success，否则为：error。</p>
-<p>XMLHttpRequest对象属于JavaScript 范畴，可以调用一些属性如下：</p>
-<p>属性名    说明</p>
-<p>responseText    作为响应主体被返回的文本</p>
-<p>responseXML    如果响应主体内容类型是”text/xml”或”application/xml”，<br>    则返回包含响应数据的 XML DOM 文档</p>
-<p>status    响应的 HTTP 状态</p>
-<p>statusText    HTTP 状态的说明</p>
-<p>如果成功返回数据，那么 xhr 对象的 statusText 属性则返回’OK’字符串。除了’OK’的状态字符串，statusText 属性还提供了一系列其他的值，如下：</p>
-<p>HTTP 状态码    状态字符串    说明</p>
-<p>200    OK    服务器成功返回了页面</p>
-<p>400    Bad Request    语法错误导致服务器不识别</p>
-<p>401    Unauthorized    请求需要用户认证</p>
-<p>404    Not found    指定的 URL 在服务器上找不到</p>
-<p>500    Internal Server Error    服务器遇到意外错误，无法完成请求</p>
-<p>503    ServiceUnavailable    由于服务器过载或维护导致无法完成请求</p>
-<p>####（四）$.get()和$.post()<br>.load()方法是局部方法，因为他需要一个包含元素的 jQuery 对象作为前缀。而$.get()和$.post()是全局方法，无须指定某个元素。对于用途而言，.load()适合做静态文件的异步获取，而对于需要传递参数到服务器页面的，$.get()和$.post()更加合适。<br>$.get()方法有四个参数，前面三个参数和.load()一样，多了一个第四参数 type，即服务器返回的内容格式：包括 xml、html、script、json、jsonp 和 text。第一个参数为必选参数，后面三个为可选参数。</p>
-<p>//使用$.get()异步返回 html 类型<br>$(‘input’).click(function () {<br>$.get(‘test.php’, {<br>url : ‘sram’<br>}, function (response, status, xhr) {<br>if (status == ‘success’) {<br>$(‘#box’).html(response);</p>
-<p>}<br>      })//type 自动转为 html<br>});</p>
-<p>注意：第四参数 type 是指定异步返回的类型。一般情况下 type 参数是智能判断，并不需要我们主动设置，如果主动设置，则会强行按照指定类型格式返回。</p>
-<p>//使用$.get()异步返回 xml<br>$(‘input’).click(function () {<br>$.get(‘test.xml’, function (response, status, xhr) {<br>$(‘#box’).html($(response).find(‘root’).find(‘url’).text());<br>      });//type 自动转为 xml<br>});</p>
-<p>注意：如果载入的是 xml 文件，type 会智能判断。如果强行设置 html 类型返回，则会把 xml 文件当成普通数据全部返回，而不会按照 xml 格式解析数据。</p>
-<p>//使用$.get()异步返回 json<br>$.get(‘test.json’, function (response, status, xhr) {<br>alert(response[0].url);<br>});</p>
-<p>$.post()方法的使用和$.get()基本上一致，他们之间的区别也比较隐晦，基本都是背后的不同，在用户使用上体现不出。具体区别如下：<br>1.GET 请求是通过 URL 提交的，而 POST 请求则是 HTTP 消息实体提交的；<br>2.GET 提交有大小限制（2KB），而 POST 方式不受限制；<br>3.GET 方式会被缓存下来，可能有安全性问题，而 POST 没有这个问题；<br>4.GET 方式通过$_GET[]获取，POST 方式通过$_POST[]获取。</p>
-<p>//使用$.post()异步返回 html<br>$.post(‘test.php’, {<br>url : ‘sram’<br>}, function (response, status, xhr){<br>$(‘#box’).html(response);<br>}<br>);</p>
-<p>####（五）$.getScript()和$.getJSON()<br>jQuery 提供了一组用于特定异步加载的方法：$.getScript()，用于加载特定的 JS 文件；$.getJSON()，用于专门加载 JSON 文件。<br>有时我们希望能够特定的情况再加载 JS 文件，而不是一开始把所有 JS 文件都加载了，这时可使用$.getScript()方法。<br>   //点击按钮后再加载 JS 文件<br>$(‘input’).click(function () {<br>$.getScript(‘test.js’);<br>});</p>
-<p>$.getJSON()方法是专门用于加载 JSON 文件的，使用方法和之前的类似。<br>$(‘input’).click(function () {<br>$.getJSON(‘test.json’, function (response, status, xhr) {<br>alert(response[0].url);<br>});<br>});</p>
-<p>####（六）$.ajax()<br>$.ajax()是所有 ajax 方法中最底层的方法，所有其他方法都是基于$.ajax()方法的封装。这个方法只有一个参数，传递一个各个功能键值对的对象。</p>
-<p>$.ajax()方法对象参数表<br>参数    类型    说明<br>url    String    发送请求的地址<br>type    String    请求方式：POST 或 GET，默认 GET</p>
-<p>timeout    Number    设置请求超时的时间（毫秒）<br>data    Object 或<br>String    发送到服务器的数据，键值对字符串或对象<br>dataType    String    返回的数据类型，比如 html、xml、json 等<br>beforeSend    Function    发送请求前可修改 XMLHttpRequest 对象的函数<br>complete    Function    请求完成后调用的回调函数<br>success    Function    请求成功后调用的回调函数<br>error    Function    请求失败时调用的回调函数<br>global    Boolean    默认为 true，表示是否触发全局 Ajax<br>cache    Boolean    设置浏览器缓存响应，默认为 true。如果 dataType类型为 script 或 jsonp 则为 false。<br>content    DOM    指定某个元素为与这个请求相关的所有回调函<br>数的上下文。<br>contentType    String    指 定 请 求 内 容 的 类 型 。 默 认 为<br>application/x-www-form-urlencoded。<br>async    Boolean    是否异步处理。默认为 true，false 为同步处理<br>processData    Boolean    默认为 true，数据被处理为 URL 编码格式。如<br>果为 false，则阻止将传入的数据处理为 URL 编码的格式。<br>dataFilter    Function    用来筛选响应数据的回调函数。<br>ifModified    Boolean    默认为 false，不进行头检测。如果为 true，进行头检测，当相应内容与上次请求改变时，请求被认为是成功的。<br>jsonp    String    指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。<br>username    String    在 HTTP 认证请求中使用的用户名<br>password    String    在 HTTP 认证请求中使用的密码<br>scriptCharset    String    当远程和本地内容使用不同的字符集时，用来设<br>置 script 和 jsonp 请求所使用的字符集。<br>xhr    Function    用来提供 XHR 实例自定义实现的回调函数<br>traditional    Boolean    默认为 false，不使用传统风格的参数序列化。如为 true，则使用。</p>
-<h5 id="ajax-使用"><a href="#ajax-使用" class="headerlink" title="$.ajax 使用"></a>$.ajax 使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(&apos;input&apos;).click(function () &#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        type : &apos;POST&apos;,//这里可以换成 GET</div><div class="line">        url : &apos;test.php&apos;, </div><div class="line">   data : &#123;</div><div class="line">            url : sram</div><div class="line">        &#125;,</div><div class="line">   success : function (response, status, xhr)&#123; </div><div class="line">		$(&apos;#box&apos;).html(response);</div><div class="line">		   &#125;</div><div class="line">		&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>注意：对于 data 属性，如果是 GET 模式，可以使用三种之前说所的三种形式。如果是 POST 模式可以使用之前的两种形式。</p>
-<p>####（七）表单序列化<br>Ajax 用的最多的地方莫过于表单操作，而传统的表单操作是通过 submit 提交将数据传输到服务器端。如果使用 Ajax 异步处理的话，我们需要将每个表单元素逐个获取才方能提交。这样工作效率就大大降低。</p>
-<p>//常规形式的表单提交<br>$(‘form input[type=button]’).click(function () {<br>$.ajax({<br>type : ‘POST’, url : ‘test.php’,<br>data : {<br>user : $(‘form input[name=user]’).val(),<br>email : $(‘form input[name=email]’).val()<br>},success : function (response, status, xhr)     {<br>alert(response);<br>}<br>});<br>});</p>
-<p>使用表单序列化方法.serialize()，会智能的获取指定表单内的所有元素。这样，在面对大量表单元素时，会把表单元素内容序列化为字符串，然后再使用 Ajax 请求。<br>//使用.serialize()序列化表单内容<br>$(‘form input[type=button]’).click(function () {<br>$.ajax({<br>type : ‘POST’, url : ‘test.php’,<br>data : $(‘form’).serialize(),<br>success : function (response, status, xhr) {<br>alert(response);<br>}<br>});<br>});</p>
-<p>.serialize()方法不但可以序列化表单内的元素，还可以直接获取单选框、复选框和下拉列表框等内容。</p>
-<p>//使用序列化得到选中的元素内容 $(‘:radio’).click(function () {<br>$(‘#box’).html(decodeURIComponent($(this).serialize()));<br>});</p>
-<p>除了.serialize()方法，还有一个可以返回 JSON 数据的方<br>法：.serializeArray()。这个方法可以直接把数据整合成键值对的 JSON 对象。<br>$(‘:radio’).click(function ()<br>{ console.log($(this).serializeArray()); var json = $(this).serializeArray(); $(‘#box’).html(json[0].value);</p>
-<p>});</p>
-<p>有时，我们可能会在同一个程序中多次调用$.ajax()方法。而它们很多参数都相同，这个时候我们课时使用 jQuery 提供的$.ajaxSetup()请求默认值来初始化参数。<br>$(‘form input[type=button]’).click(function () {<br>$.ajaxSetup({<br>type : ‘POST’,<br>url : ‘test.php’,<br>data : $(‘form’).serialize()</p>
-<p>});<br>$.ajax({<br>success : function (response, status, xhr) { alert(response);}<br>});<br>});</p>
-<p>在使用 data 属性传递的时候，如果是以对象形式传递键值对，可以使用$.param()方法将对象转换为字符串键值对格式。</p>
-<p>var obj = {a : 1, b : 2, c : 3}; var form = $.param(obj); alert(form);</p>
-<p>注意：使用$.param()将对象形式的键值对转为 URL 地址的字符串键值对，可以更加稳定准确的传递表单内容。因为有时程序对于复杂的序列化解析能力有限，所以直接传递 obj 对象要谨慎。</p>
 
       
     </div>
